@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://prometheus.org.ua/cs50web_2021/notes0.html -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- https://useiconic.com/open -->
+        <link crossorigin="anonymous" href="./notes0_files/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" rel="stylesheet">
+
+        <link href="./notes0_files/style.css" rel="stylesheet">
+
+        <!-- http://getbootstrap.com/docs/4.2/getting-started/introduction/ -->
+        <script crossorigin="anonymous" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" src="./notes0_files/jquery.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" src="./notes0_files/popper.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" src="./notes0_files/bootstrap.min.js"></script>
+
+        <title>Лекція 0 - Вебпрограмування з Python та JavaScript CS50</title>
+
+        <style type="text/css">
+          main {
+                margin-left: 0; 
+          }
+        </style>
+
+    </head>
+
+    <body data-new-gr-c-s-check-loaded="14.1035.0" data-gr-ext-installed="">
+
+<div class="container-fluid">
+    <div class="row">
+<main class="col-md">
+
+                    <a data-id="" id="lecture-0" style="top: -58px;"></a><h1 class="no_toc"><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#lecture-0">Нульова лекція</a></h1>
+
+<ul id="markdown-toc">
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#introduction" id="markdown-toc-introduction">Вступ</a></li>
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#web-programming" id="markdown-toc-web-programming">Вебпрограмування</a></li>
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#html-hypertext-markup-language" id="markdown-toc-html-hypertext-markup-language">HTML (мова гіпертекстової розмітки)</a>    <ul>
+      <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#document-object-model-dom" id="markdown-toc-document-object-model-dom">Об’єктна модель документа (DOM)</a></li>
+      <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#more-html-elements" id="markdown-toc-more-html-elements">Більше елементів HTML</a></li>
+      <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#forms" id="markdown-toc-forms">Форми</a></li>
+    </ul>
+  </li>
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#css-cascading-style-sheets" id="markdown-toc-css-cascading-style-sheets">CSS (каскадні таблиці стилів)</a></li>
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#responsive-design" id="markdown-toc-responsive-design">Адаптивний дизайн</a></li>
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#bootstrap" id="markdown-toc-bootstrap">Bootstrap</a></li>
+  <li><a href="https://prometheus.org.ua/cs50web_2021/notes0.html#sass-syntactically-awesome-style-sheets" id="markdown-toc-sass-syntactically-awesome-style-sheets">Sass (Синтаксично дивовижні таблиці стилів)</a></li>
+</ul>
+
+<a data-id="" id="introduction" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#introduction">Вступ</a></h2>
+
+<p>У цьому курсі ми продовжуємо з того ж місця, де зупинились у «CS50: Основи програмування». Ми заглиблюємось у розробку та створення вебзастосунків. Ми будемо розвивати свої навички вебдизайну, працюючи над проєктами впродовж усього курсу, включно з відкритим фінальним проєктом, у якому ви зможете створити власний вебсайт!</p>
+
+<p>У цьому курсі вам знадобиться текстовий редактор, де ви можете писати код локально на своєму комп’ютері. Серед популярних – <a href="https://code.visualstudio.com/">Visual Studios Code</a>, <a href="https://www.sublimetext.com/">Sublime Text</a>, <a href="https://atom.io/">Atom</a>, та <a href="https://www.vim.org/">Vim</a>, але на вибір є багато інших!</p>
+
+<a data-id="" id="web-programming" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#web-programming">Вебпрограмування</a></h2>
+
+<p><strong>Теми курсу:</strong> Ми детальніше розглянемо пізніше, але ось короткий огляд того, над чим ми будемо працювати під час цього курсу:</p>
+
+<ol>
+  <li><strong>HTML і CSS</strong> (мова гіпертекстової розмітки, яка використовується для структурування вебсторінки та інструменти для того, щоб зробити наші вебсайти привабливішими візуально).</li>
+  <li><strong>Git</strong> (використовується для контролю версій та співпраці).</li>
+  <li><strong>Python</strong> (широко використовувана мова програмування, яку ми будемо застосовувати, щоб зробити наші сайти динамічнішими).</li>
+  <li><strong>Django</strong> (популярний вебфреймворк, який ми використовуватимемо для серверної частини наших вебсайтів).</li>
+  <li><strong>SQL, Models, and Migrations</strong> (мова програмування, що використовується для того, щоб зробити вебсайти швидшими та інтерактивними).</li>
+  <li><strong>JavaScript</strong> (мова програмування, що використовується для того, щоб зробити вебсайти швидшими та інтерактивними).</li>
+  <li><strong>Користувацькі інтерфейси</strong> (методи, що використовуються для максимально спрощення взаємодії з вебсайтами).</li>
+  <li><strong>Тестування, CI, CD</strong> (вивчення різних методів, які використовуються для забезпечення безперебійного оновлення вебсторінок).</li>
+  <li><strong>Масштабованість та безпека</strong> (забезпечення доступу до наших вебсайтів багатьом користувачам одночасно та захист від зловмисників).</li>
+</ol>
+
+<a data-id="" id="html-hypertext-markup-language" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#html-hypertext-markup-language">HTML (Мова гіпертекстової розмітки)</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>HTML – це мова гіпертекстової розмітки, яка визначає структуру вебсторінки. Вона інтерпретується вашим веббраузером (Safari, Google Chrome, Firefox тощо) для подання вмісту на екрані.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Почнемо з написання простого файлу HTML!</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Hello!<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        Hello, world!
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Відкривши цей файл у вашому браузері, ми отримуємо:</li>
+</ul>
+
+<p><img src="./notes0_files/hello0.png" alt="Hello Page"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>А тепер давайте трохи поговоримо про файл, який ми щойно написали, він здається досить складним для такої простої сторінки.
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>У першому рядку ми оголошуємо (веббраузеру), що пишемо документ в останній версії HTML, а саме HTML5.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Після цього сторінка складається з вкладених <strong>елементів HTML</strong> (such as html and body), (таких як html та body), кожен з <strong>тегами відкриття та закриття</strong> які позначені або <code class="language-plaintext highlighter-rouge">&lt;element&gt;</code> для відкриття, або <code class="language-plaintext highlighter-rouge">&lt;/element&gt;</code> для закриття.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Зверніть увагу, як кожен з вкладених елементів відступає трохи далі від останнього. Хоча це не обов’язково вимагається браузером, буде дуже корисно мати це у власному коді.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Елементи HTML можуть включати <strong>атрибути</strong>, які надають браузеру додаткову інформацію про елемент. Наприклад, коли ми включаємо <code class="language-plaintext highlighter-rouge">lang="en"</code> до нашого початкового тегу, ми повідомляємо браузеру, що використовуємо англійську як основну мову.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Всередині елемента HTML ми, як правило, хочемо включити теги <code class="language-plaintext highlighter-rouge">head</code> і <code class="language-plaintext highlighter-rouge">body</code>. Елемент head містить інформацію про вашу сторінку, яка не обов'язково відображається, а елемент body міститиме те, що насправді видно користувачам, які відвідують сайт.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>У <code class="language-plaintext highlighter-rouge">title</code> ми включили заголовок нашої вебсторінки, який, як ви помітите, відображається на вкладці у верхній частині нашого веббраузера.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Нарешті, ми додали текст «Привіт, світ!» в тілі, яке є видимою частиною нашої сторінки.</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="document-object-model-dom" style="top: -58px;"></a><h3><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#document-object-model-dom">Об’єктна модель документа (DOM)</a></h3>
+
+<p><img src="./notes0_files/dom.png" alt="DOM"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>DOM – це зручний спосіб візуалізації зв’язків між елементами HTML за допомогою деревоподібної структури. Вище наведено приклад макета DOM для сторінки, яку ми щойно написали.</li>
+</ul>
+
+<a data-id="" id="more-html-elements" style="top: -58px;"></a><h3><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#more-html-elements">Більше елементів HTML</a></h3>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Існує багато елементів HTML, які ви можете використовувати для змін на сторінці, до них належать заголовки, списки та виділені жирним розділи. У цьому прикладі ми побачимо деякі з них у дії.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Також варто звернути увагу: <code class="language-plaintext highlighter-rouge">&lt;!-- --&gt;</code> надає нам можливість залишати коментарі у HTML, тому ми використаємо це позначення у коді нижче для пояснення деяких елементів.</li>
+</ul>
+
+<pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;HTML Elements&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Ми можемо створювати заголовки, використавши h1 - h6 як теги. --&gt;
+        &lt;h1&gt;A Large Heading&lt;/h1&gt;
+        &lt;h2&gt;A Smaller Heading&lt;/h2&gt;
+        &lt;h6&gt;The Smallest Heading&lt;/h6&gt;
+
+        &lt;!-- Теги strong та i дають нам жирний та курсив відповідно. --&gt;
+        A &lt;strong&gt;bold&lt;/strong&gt; word and an &lt;i&gt;italicized&lt;/i&gt; word!
+
+        &lt;!-- Ми можемо зробити посилання на іншу сторінку (наприклад, сторінку cs50) за допомогою a. --&gt;
+        View the &lt;a href="https://cs50.harvard.edu/"&gt;CS50 Website&lt;/a&gt;!
+
+        &lt;!-- Ми використовували ul для невпорядкованого списку та ol для впорядкованого. Як впорядковані, так і невпорядковані списки містять li або елементи списку. --&gt;
+        An unordered list:
+        &lt;ul&gt;
+            &lt;li&gt;foo&lt;/li&gt;
+            &lt;li&gt;bar&lt;/li&gt;
+            &lt;li&gt;baz&lt;/li&gt;
+        &lt;/ul&gt;
+        An ordered list:
+        &lt;ol&gt;
+            &lt;li&gt;foo&lt;/li&gt;
+            &lt;li&gt;bar&lt;/li&gt;
+            &lt;li&gt;baz&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;!-- Для зображень потрібен атрибут src, який може бути або шляхом до файлу на вашому комп’ютері, або посиланням на зображення в інтернеті. Він також містить атрибут alt, який дає опис на випадок, якщо зображення не вдається завантажити. --&gt;
+        An image:
+        &lt;img src="../../images/duck.jpeg" alt="Rubber Duck Picture"&gt;
+        &lt;!-- Вище ми також бачимо, що для деяких елементів, які не містять інших, закривати теги не потрібно. --&gt;
+
+        &lt;!-- Тут ми використовуємо тег br, щоб додати порожній рядок на сторінку. Тут ми використовуємо тег br, щоб додати порожній рядок на сторінку. --&gt;
+        &lt;br/&gt; &lt;br/&gt;
+
+        &lt;!-- Для створення таблиці потрібно кілька різних тегів. --&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;th&gt;Ocean&lt;/th&gt;
+                &lt;th&gt;Average Depth&lt;/th&gt;
+                &lt;th&gt;Maximum Depth&lt;/th&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Pacific&lt;/td&gt;
+                    &lt;td&gt;4280 m&lt;/td&gt;
+                    &lt;td&gt;10911 m&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Atlantic&lt;/td&gt;
+                    &lt;td&gt;3646 m&lt;/td&gt;
+                    &lt;td&gt;8486 m&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+&lt;html&gt;
+</code></pre>
+
+<p>При відображенні ця сторінка виглядає приблизно так:</p>
+
+<p><img src="./notes0_files/elements.png" alt="Elements"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Якщо ви не все зрозуміли, знайте, що вам ніколи не доведеться запам’ятовувати ці елементи. Ви можете просто пошукати щось на зразок «зображення в HTML», щоб знайти тег <code class="language-plaintext highlighter-rouge">img</code>. <a href="https://www.w3schools.com/html/html_elements.asp">W3 Schools</a> – один з дуже корисних ресурсів для пошуку.</li>
+</ul>
+
+<a data-id="" id="forms" style="top: -58px;"></a><h3><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#forms">Форми</a></h3>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ще один набір елементів, який насправді важливий при створенні вебсайта – це збір інформації від користувачів. Ви можете дозволити користувачам вводити інформацію за допомогою форми HTML, яка може містити кілька різних типів введення. Пізніше під час вивчення курсу ми дізнаємося про те, як обробляти інформацію після надсилання форми.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Як і у випадку з іншими елементами HTML, не потрібно їх запам’ятовувати, і W3 Schools – чудовий ресурс для їх вивчення!</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Forms<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"First Name"</span> <span class="na">name=</span><span class="s">"first"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">name=</span><span class="s">"password"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div&gt;</span>
+            Favorite Color:
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"color"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"blue"</span><span class="nt">&gt;</span> Blue
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"color"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"green"</span><span class="nt">&gt;</span> Green
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"color"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"yellow"</span><span class="nt">&gt;</span> Yellow
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"color"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"red"</span><span class="nt">&gt;</span> Red
+
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/form.png" alt="form"></p>
+
+<a data-id="" id="css-cascading-style-sheets" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#css-cascading-style-sheets">CSS (каскадні таблиці стилів)</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>CSS використовується для зміни зовнішнього вигляду вебсайта.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Поки ми тільки починаємо, можемо додати атрибут style до будь-якого елемента HTML, щоб застосувати до нього певний CSS.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ми міняємо стиль, змінюючи властивості CSS елемента, записуючи щось на зразок <code class="language-plaintext highlighter-rouge">color: blue</code> або <code class="language-plaintext highlighter-rouge">text-align: center</code></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>У наведеному прикладі ми внесли невелику зміну до нашого першого файлу, щоб надати йому кольоровий заголовок:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Hello!<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">"color: blue; text-align: center;"</span><span class="nt">&gt;</span>A Colorful Heading!<span class="nt">&lt;/h1&gt;</span>
+        Hello, world!
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/style0.png" alt="blue heading"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Якщо ми стилізуємо зовнішній елемент, усі внутрішні елементи автоматично набувають цього стилю. Ми можемо побачити це, якщо перенести стиль, який ми щойно застосували, із тегу заголовка (h1) до тегу тіла (body):</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Hello!<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">"color: blue; text-align: center;"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="nt">&gt;</span>A Colorful Heading!<span class="nt">&lt;/h1&gt;</span>
+        Hello, world!
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/style1.png" alt="blue everywhere"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Хоча ми можемо стилізувати нашу вебсторінку, як це було зроблено вище, для покращення дизайну нам потрібна можливість відійти від окремих рядків.
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Один із способів зробити це - додати стиль між тегами <code class="language-plaintext highlighter-rouge">&lt;style&gt;</code> в <code class="language-plaintext highlighter-rouge">head</code>. Всередині цих тегів ми пишемо, які типи елементів ми хочемо стилізувати, і стиль, який ми хочемо застосувати до них. Наприклад:</li>
+    </ul>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Hello!<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;style&gt;</span>
+          <span class="nt">h1</span> <span class="p">{</span>
+              <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+              <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+          <span class="p">}</span>
+      <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="nt">&gt;</span>A Colorful Heading!<span class="nt">&lt;/h1&gt;</span>
+      Hello, world!
+  <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>    </div>
+
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Інший спосіб – це включити елемент <code class="language-plaintext highlighter-rouge">&lt;link&gt;</code> в <code class="language-plaintext highlighter-rouge">head</code> із посиланням на файл styles.css, який містить певний стиль. Це означає, що файл HTML буде виглядати так:</li>
+    </ul>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Hello!<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"styles.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="nt">&gt;</span>A Colorful Heading!<span class="nt">&lt;/h1&gt;</span>
+      Hello, world!
+  <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div>    </div>
+
+    <p>І наш файл із назвою <code class="language-plaintext highlighter-rouge">styles.css</code> буде виглядати так:</p>
+
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">h1</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+      <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Існує дуже багато властивостей CSS, всі ми розглянути не зможемо, але так само, як і елементи HTML, як правило, їх легко знайти за запитом, наприклад, «змінити шрифт на синій CSS». Деякі з найпоширеніших:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">color</code>: колір тексту</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">text-align</code>: де елементи розміщуються на сторінці</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">background-color</code>: можна встановити будь-який колір</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">width</code>: ширина у пікселях або відсотках від сторінки</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">height</code>: висота у пікселях або відсотках сторінки</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">padding</code>: скільки місця слід залишити всередині елемента</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">margin</code>: скільки місця слід залишити поза елементом</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">font-family</code>: тип шрифту для тексту на сторінці</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">font-size</code>: кегль шрифту у пікселях</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="language-plaintext highlighter-rouge">border</code>: тип межі (суцільна, штрихова тощо) та колір</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Застосуємо те, чому ми навчились, стилізуємо таблиці наших океанів. Ось код HTML для початку:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Nicer Table<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;table&gt;</span>
+            <span class="nt">&lt;thead&gt;</span>
+                <span class="nt">&lt;th&gt;</span>Ocean<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;th&gt;</span>Average Depth<span class="nt">&lt;/th&gt;</span>
+                <span class="nt">&lt;th&gt;</span>Maximum Depth<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;/thead&gt;</span>
+            <span class="nt">&lt;tbody&gt;</span>
+                <span class="nt">&lt;tr&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>Pacific<span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>4280 m<span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>10911 m<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;/tr&gt;</span>
+                <span class="nt">&lt;tr&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>Atlantic<span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>3646 m<span class="nt">&lt;/td&gt;</span>
+                    <span class="nt">&lt;td&gt;</span>8486 m<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;/tr&gt;</span>
+            <span class="nt">&lt;/tbody&gt;</span>
+        <span class="nt">&lt;/table&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/table0.png" alt="table bad"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Розміщене вище схоже на те, що було раніше, але тепер, включивши тег стилю або посилання на таблицю стилів до елементу head, ми додаємо такий css:</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">border-collapse</span><span class="p">:</span> <span class="nb">collapse</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">td</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">th</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>І це дає нам цю приємнішу для перегляду таблицю:</p>
+
+<p><img src="./notes0_files/table1.png" alt="table good"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Можливо, ви вже подумали, що зараз у нашому CSS є непотрібне повторення, оскільки <code class="language-plaintext highlighter-rouge">td</code> та <code class="language-plaintext highlighter-rouge">th</code> мають однаковий стиль. Ми можемо (і повинні) звести це до наведеного нижче коду, використовуючи кому, щоб показати, що стиль повинен застосовуватися до більш ніж одного типу елемента.</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">border-collapse</span><span class="p">:</span> <span class="nb">collapse</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">td</span><span class="o">,</span> <span class="nt">th</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Це хороший вступ до так званих <a href="https://www.w3schools.com/cssref/css_selectors.asp">селекторів CSS</a>. Є багато способів визначити, які елементи HTML ви створюєте, деякі з них ми згадаємо тут:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><strong>тип елемента</strong>: це те, що ми робили до цього часу – стилізуємо всі елементи одного типу;</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><strong>id</strong>: інший варіант – надати нашим елементам HTML такий ідентифікатор: <code class="language-plaintext highlighter-rouge">&lt;h1 id="first-header"&gt;Привіт!&lt;/h1&gt;</code> а потім застосувати стиль за допомогою <code class="language-plaintext highlighter-rouge">#first-header{...}</code> використовуючи хештег для демонстрації того, що ми шукаємо за ідентифікатором. Важливо, що два елементи не можуть мати однаковий ідентифікатор, і жоден елемент не може мати понад один ідентифікатор.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><strong>class</strong>: це схоже на id, але клас може бути спільним для використання понад одним елементом, а один елемент може мати понад один клас. Ми додаємо класи до елемента HTML таким чином: <code class="language-plaintext highlighter-rouge">&lt;h1 class="page-text muted"&gt;Привіт!&lt;/h1&gt;</code> (зауважте, що ми щойно додали два елементи до елемента: <code class="language-plaintext highlighter-rouge">page-text</code> і <code class="language-plaintext highlighter-rouge">muted</code>). Потім ми створюємо стиль на основі класу, використовуючи крапку замість хештегу: <code class="language-plaintext highlighter-rouge">.muted {...}</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Тепер нам також доведеться мати справу з конфліктами в CSS. Що трапиться, коли заголовок повинен бути червоним на основі свого класу, і в той же час синім на основі його ідентифікатора? CSS має наступний пріоритет застосування:
+    <ol>
+      <li>рядковий стиль;</li>
+      <li>id;</li>
+      <li>клас;</li>
+      <li>тип елемента.</li>
+    </ol>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>На додаток до коми для кількох селекторів, існує ще кілька способів вказати, які елементи ви хочете стилізувати. У цій таблиці з лекції подано кілька, і ми розглянемо кілька прикладів нижче:</li>
+</ul>
+
+<p><img src="./notes0_files/selectors.png" alt="selectors"></p>
+
+<p><strong>Селектор нащадків</strong>: Тут ми використовуємо селектор нащадків, щоб застосовувати стилі лише до елементів списку, знайдених у невпорядкованому списку:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Using Selectors<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+                <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;ol&gt;</span>
+            <span class="nt">&lt;li&gt;</span>foo<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span> bar
+                <span class="nt">&lt;ul&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>hello<span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>goodbye<span class="nt">&lt;/li&gt;</span>
+                    <span class="nt">&lt;li&gt;</span>hello<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;/ul&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>baz<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ol&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/selectors0.png" alt="list selector"></p>
+
+<p><strong>Атрибути як селектори</strong>: ми також можемо звузити наш вибір на основі атрибутів, які ми призначаємо елементам HTML за допомогою квадратних дужок. Наприклад, у наведеному списку посилань ми вирішили зробити лише посилання на Amazon червоним:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Using Selectors<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">=</span><span class="s1">"https://www.amazon.com/"</span><span class="o">]</span> <span class="p">{</span>
+                <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;ol&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://www.google.com/"</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://www.amazon.com/"</span><span class="nt">&gt;</span>Amazon<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"https://www.facebook.com/"</span><span class="nt">&gt;</span>Facebook<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;/ol&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/selectors2.png" alt="link selectors"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ми можемо не тільки використовувати CSS для постійної зміни того, як виглядає елемент, а й того, як він виглядає за певних умов. Наприклад, що, якби ми хотіли, щоб кнопка змінила колір, коли ми наводимо на неї курсор? Ми можемо це зробити за допомогою <a href="https://www.w3schools.com/css/css_pseudo_classes.asp">псевдокласу CSS</a>, який забезпечує додатковий стиль під час особливих обставин. Ми пишемо це, додаючи двокрапку після нашого селектора, а потім додаючи обставину після цієї двокрапки.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>У випадку з кнопкою ми додамо <code class="language-plaintext highlighter-rouge">:hover</code> до селектора кнопок, щоб вказати дизайн лише при наведенні на кнопку:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Pseudoclasses<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">button</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+                <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+                <span class="nl">height</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span>
+                <span class="nl">font-size</span><span class="p">:</span> <span class="m">24px</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nt">button</span><span class="nd">:hover</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;button&gt;</span>Button 1<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button&gt;</span>Button 2<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button&gt;</span>Button 3<span class="nt">&lt;/button&gt;</span>
+
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/buttons.gif" alt="buttons"></p>
+
+<a data-id="" id="responsive-design" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#responsive-design">Адаптивний дизайн</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Зараз багато людей переглядають вебсайти на різних пристроях, не лише на комп’ютерах, наприклад, на смартфонах та планшетах. Важливо переконатися, що ваш вебсайт читабельний для людей на всіх пристроях.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ми можемо досягти цього завдяки розумінню області <strong>перегляду</strong>. Це частина екрана, яка фактично видна користувачеві постійно. За замовчуванням багато вебсторінок вважають, що область перегляду однакова на будь-якому пристрої, що призводить до того, що з багатьма сайтами (особливо старими) важко взаємодіяти на мобільних пристроях.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Один із простих способів покращити зовнішній вигляд сайту на мобільному пристрої – це додати наведений далі рядок у заголовок наших HTML-файлів. Цей рядок вказує мобільному пристрою використовувати область перегляду тієї ж ширини, що і ширина пристрою, який ви використовуєте, а не значно більшу.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Інший спосіб,  за допомогою якого ми можемо взаємодіяти з різними пристроями, - це <a href="https://www.w3schools.com/cssref/css3_pr_mediaquery.asp">медіазапити</a>. Медіазапити – це способи зміни стилю сторінки на основі того, як саме переглядається сторінка.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Для прикладу медіазапиту спробуємо просто змінити колір екрана, коли він зменшується до певного розміру. Ми сигналізуємо про медіазапит, вводячи <code class="language-plaintext highlighter-rouge">@media</code> а потім в дужках тип запиту:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Screen Size<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nt">body</span> <span class="p">{</span>
+                    <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">599px</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nt">body</span> <span class="p">{</span>
+                    <span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Welcome to the page!<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/responsive0.gif" alt="screen size"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Інший спосіб – використання нового атрибута CSS, відомого як <a href="https://www.w3schools.com/css/css3_flexbox.asp">flexbox</a>. Це дозволяє нам легко перенести елементи до наступного рядка, якщо вони не вміщуються горизонтально. Ми робимо це, розміщуючи всі наші елементи у <code class="language-plaintext highlighter-rouge">div</code>, який ми будемо називати своїм контейнером. Потім ми додаємо певний стиль до цього div, вказуючи, що ми хочемо використовувати відображення flexbox для елементів всередині нього. Ми також додали кілька додаткових стилів до внутрішніх div, щоб краще проілюструвати, як цей перенос відбувається.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Screen Size<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nf">#container</span> <span class="p">{</span>
+                <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+                <span class="nl">flex-wrap</span><span class="p">:</span> <span class="n">wrap</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nf">#container</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+                <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">margin</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 1!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 2!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 3!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 4!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 5!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 6!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 7!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 8!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 9!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 10!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 11!<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>Some text 12!<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/flexbox.gif" alt="flexbox"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Іншим популярним способом стилізації сторінки є використання сітки HTML <a href="https://www.w3schools.com/css/css_grid.asp">grid</a>. У цій сітці ми можемо вказати такі атрибути стилю, як ширина стовпців та пробіли між стовпцями та рядками, як показано нижче. Зверніть увагу, що коли ми вказуємо ширину стовпців, ми говоримо, що третій має автоматичну ширину, тобто він повинен заповнити решту сторінки.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>My Web Page!<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nc">.grid</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+                <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
+                <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="py">grid-column-gap</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="py">grid-row-gap</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+                <span class="py">grid-template-columns</span><span class="p">:</span> <span class="m">200px</span> <span class="m">200px</span> <span class="nb">auto</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="nc">.grid-item</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+                <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>5<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>7<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>8<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>11<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item"</span><span class="nt">&gt;</span>12<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/grid.gif" alt="grid"></p>
+
+<a data-id="" id="bootstrap" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#bootstrap">Bootstrap</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Виявляється, існує безліч бібліотек, їх вже створили інші люди. Ці бібліотеки можуть зробити стилізування вебсторінки ще простішим. Одна популярна бібліотека, якою ми будемо користуватися протягом курсу, відома як <a href="https://getbootstrap.com/">bootstrap</a>.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ми можемо додати Bootstrap до нашого коду за допомогою одного рядка в заголовку нашого HTML-файлу:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Далі ми можемо розглянути деякі особливості Bootstrap, перейшовши до <a href="https://getbootstrap.com/docs/4.5/components/">документації</a> на їхньому вебсайті. На цій сторінці ви знайдете багато прикладів класів, які можна додати до елементів, що дозволяють їх стилізувати за допомогою Bootstrap.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Однією з популярних функцій Bootstrap є <a href="https://getbootstrap.com/docs/4.0/layout/grid/">сітка</a>. Bootstrap автоматично розділяє сторінку на 12 стовпців, і ми можемо вирішити, скільки стовпців забирає елемент, додавши клас <code class="language-plaintext highlighter-rouge">col-x</code>, де <code class="language-plaintext highlighter-rouge">x</code> - число від 1 до 12. Наприклад, на наведеній сторінці у нас є рядок стовпців однакової ширини, а потім рядок, де центральний стовпець більший:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>My Web Page!<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nc">.row</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+                <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">teal</span><span class="p">;</span>
+                <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+                    This is a section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+                    This is another section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+                    This is a third section.
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;br/&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-3"</span><span class="nt">&gt;</span>
+                    This is a section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>
+                    This is another section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-3"</span><span class="nt">&gt;</span>
+                    This is a third section.
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/cols1.gif" alt="columns"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Щоб покращити швидкість реагування на мобільних пристроях, Bootstrap також дозволяє вказати розміри стовпців, які відрізняються залежно від розміру екрана. У наведеному прикладі ми використовуємо <code class="language-plaintext highlighter-rouge">col-lg-3</code>, щоб показати, що елемент повинен займати 3 стовпці на великому екрані, а <code class="language-plaintext highlighter-rouge">col-sm-6</code>, щоб показати, що елемент, повинен займати 6 стовпців, коли екран невеликий:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>My Web Page!<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nc">.row</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+                <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">teal</span><span class="p">;</span>
+                <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-3 col-sm-6"</span><span class="nt">&gt;</span>
+                    This is a section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-3 col-sm-6"</span><span class="nt">&gt;</span>
+                    This is another section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-3 col-sm-6"</span><span class="nt">&gt;</span>
+                    This is a third section.
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-3 col-sm-6"</span><span class="nt">&gt;</span>
+                    This is a fourth section.
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/cols2.gif" alt="wrap columns"></p>
+
+<a data-id="" id="sass-syntactically-awesome-style-sheets" style="top: -58px;"></a><h2><a data-id="" href="https://prometheus.org.ua/cs50web_2021/notes0.html#sass-syntactically-awesome-style-sheets">Sass (Синтаксично дивовижні таблиці стилів)</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ми вже знайшли кілька способів усунути надмірність у CSS, наприклад, перенести його в окремі файли або використати Bootstrap, але є ще досить багато місць, де ми можемо вдосконалити наш код. Наприклад, якщо ми хочемо, щоб декілька елементів мали різні стилі, але щоб усі вони були однакового кольору? Якщо пізніше ми вирішимо, що хочемо змінити колір, то нам доведеться змінити його для кількох різних елементів.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://sass-lang.com/">Sass</a> – це мова, яка дозволяє нам ефективніше писати CSS кількома способами, одним із яких є створення змінних, як у наведеному прикладі.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Під час написання на Sass ми створюємо новий файл із розширенням <code class="language-plaintext highlighter-rouge">назва_файлу.scss</code>. У цьому файлі ми можемо створити нову змінну, додавши <code class="language-plaintext highlighter-rouge">$</code> перед іменем, потім двокрапку та значення. Наприклад, ми б написали <code class="language-plaintext highlighter-rouge">$color: red</code>, щоб встановити для змінної color значення red або «червоний». Потім ми отримуємо доступ до цієї змінної за допомогою <code class="language-plaintext highlighter-rouge">$color</code>. Ось приклад нашого файлу variables.scss:</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span><span class="nt">color</span><span class="o">:</span> <span class="nt">red</span><span class="o">;</span>
+
+<span class="nt">ul</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">ol</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Тепер, щоб пов’язати цей стиль із нашим файлом HTML, ми не зможемо просто пов’язати файл <code class="language-plaintext highlighter-rouge">.scss</code>, оскільки більшість веббраузерів розпізнають лише файли <code class="language-plaintext highlighter-rouge">.css</code>. Для розв’язку цієї задачі ми повинні <a href="https://sass-lang.com/install">завантажити програму під назвою Sass</a> на наші комп’ютери. Потім у нашому терміналі ми пишемо <code class="language-plaintext highlighter-rouge">sass variables.scss:variables.css</code> Ця команда скомпілює файл .scss з назвою <code class="language-plaintext highlighter-rouge">variables.scss</code> у файл .css з назвою <code class="language-plaintext highlighter-rouge">variables.css</code>, tдо якого ви можете надати посилання на своїй HTML-сторінці.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Щоб пришвидшити цей процес, ми можемо використовувати команду <code class="language-plaintext highlighter-rouge">sass --watch variables.scss:variables.css</code>, яка автоматично змінює файл <code class="language-plaintext highlighter-rouge">.css</code> щоразу, коли у файлі <code class="language-plaintext highlighter-rouge">.scss</code> виявляється зміна.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Використовуючи Sass, ми також можемо робити вкладені стилі, а не використовувати селектори CSS, про які ми говорили раніше. Наприклад, якщо ми хочемо застосувати деякий стиль лише до абзаців та невпорядкованих списків у div, ми можемо написати щось подібне до наведеного нижче:</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+
+    <span class="err">p</span> <span class="err">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nt">ul</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</code></pre></div></div>
+
+<p>Після компіляції в CSS ми отримаємо файл, який виглядатиме так:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">div</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">div</span> <span class="nt">ul</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Ще одна особливість, яку дає нам Sass, відома як <a href="https://sass-lang.com/guide">успадкування</a>. Це дозволяє нам створити базовий набір стилів, яким можуть користуватися кілька різних елементів. Ми робимо це, додаючи <code class="language-plaintext highlighter-rouge">%</code>  перед назвою класу, додаючи певний стиль, а потім додаючи рядок <code class="language-plaintext highlighter-rouge">@extend %classname</code> на початку стилю. Наприклад, наведений код застосовує стиль у класі <code class="language-plaintext highlighter-rouge">message</code> до кожного з різних класів нижче, в результаті чого з’являється вебсторінка, схожа на наведену далі.</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="nt">message</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.success</span> <span class="p">{</span>
+    <span class="err">@extend</span> <span class="err">%message;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.warning</span> <span class="p">{</span>
+    <span class="err">@extend</span> <span class="err">%message;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+    <span class="err">@extend</span> <span class="err">%message;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="./notes0_files/inherit.png" alt="inheritance"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>На цьому на сьогодні все!</li>
+</ul>
+
+
+                </main>
+            </div>
+        </div>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

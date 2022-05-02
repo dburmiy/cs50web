@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').onsubmit = function() {
+
+            // fetch ('https://api.exchangeratesapi.io/latest?base=USD')
+            fetch ('https://free.currconv.com/api/v7/convert?q=USD_EUR,EUR_USD&compact=ultra&apiKey=32156a3fe272424f20c1')
+
+            .then(response => response.json())      //same as response => {return response.json()})
+            .then(data => {
+                const currency = document.querySelector('#currency').value.toUpperCase();
+                const rate =  data[currency];
+                if (rate !== undefined) {
+                    document.querySelector('#result').innerHTML = `${currency} is equal to ${rate.toFixed(3)}`;
+                } else {
+                    document.querySelector('#result').innerHTML = 'Invalid currency'
+                }
+                
+            });
+            // .catch(error => {
+            //         console.log('Error: ', error)
+            //     });
+            return false;
+            };
+        });
+    </script>
+</head>
+<body>
+    <h2></h2>
+    <form>
+        <input id="currency" placeholder="Currency" type="text">
+        <input type="submit" value="Convert">
+    </form>
+    <div id="result">
+
+    </div>
+</body>

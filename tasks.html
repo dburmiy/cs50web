@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tasks</title>
+    <style>
+        li {
+            list-style-type: none;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        // TASKS 
+document.addEventListener('DOMContentLoaded', function() { 
+    // by default Submit button is disabled
+
+    document.querySelector('#submit').disabled = true;
+    document.querySelector('form').onkeyup = () => {
+        if (document.querySelector('#task').value.length > 0) {
+            document.querySelector('#submit').disabled = false;
+        } else {
+            document.querySelector('#submit').disabled = true;
+        }
+    };
+    document.querySelector('form').onsubmit = () => {
+        const task = document.querySelector('#task').value;
+        const li = document.createElement('li');
+
+        const input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
+
+        document.querySelector('#tasks').append(li);
+        document.querySelector('#task').value = '';
+        document.querySelector('#submit').disabled = true;
+
+        document.querySelector('#tasks').append(input);
+        document.querySelector('#tasks').append(task); 
+
+        
+        return false;
+    }
+});
+    </script>
+</head>
+<body>
+    <!-- TASKS -->
+    <div style='padding-left: 40px;'>
+        <h1>Tasks</h1>
+        <form>
+            <input id="task" type="text" placeholder="Enter Task">
+            <input id='submit' type="submit">
+        </form>
+    </div>
+    <div>
+        <ul id="tasks">
+
+        </ul>
+    </div>
+</body>
+</html>
