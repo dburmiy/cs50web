@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animation</title>
+        <style>
+            @keyframes grow {
+                /* 0% {
+                    
+                } */
+                80% {
+                    font-size: 150px;
+                    color: green;
+                }
+                100% {
+                    font-size: 40px;
+                    color: blue;
+                }
+            }
+
+            #grow {
+                position: absolute;
+                font-size: 40px;
+                top: 0;
+                animation-name: grow;
+                animation-delay: 1s;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+                
+            }
+
+            @keyframes move {
+                0% {
+                    left: 0%;
+                }
+                80% {
+                    left: 50%;
+                }
+                100% {
+                    left: 0%;
+                }
+            }
+
+            #move {
+                position: relative;
+                font-size: 40px;
+                animation-name: move;
+                animation-delay: 1s;
+                animation-duration: 4s;
+                animation-fill-mode: forwards;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+
+            // Знайти заголовок
+            const h1 = document.querySelector('#grow');
+
+            // Призупинити анімацію за замовчуванням
+            h1.style.animationPlayState = 'paused';
+
+            // Дочекатись, поки кнопка буде натиснута
+            document.querySelector('button').onclick = () => {
+
+                // Якщо анімація призупинена, програти анімацію
+                if (h1.style.animationPlayState == 'paused') {
+                    h1.style.animationPlayState = 'running';
+                }
+
+                // В іншому випадку, призупинити анімацію
+                else {
+                    h1.style.animationPlayState = 'paused';
+                }
+            }
+
+            })
+        </script>
+    </head>
+    <body>
+        <h1 id="move">Hello!</h1>
+        <h1 id="grow">Hello!</h1>
+        <button>Click here!</button>
+    </body>
+</html>
